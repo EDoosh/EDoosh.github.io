@@ -1,0 +1,158 @@
+/* Everything not in the sidebar */
+body {
+    background-color: rgb(248, 247, 241);
+}
+/* Everything */
+* {
+    font-family: "Georgia", Times, serif;
+}
+
+
+.main {
+    /* Thank you http://bettermotherfuckingwebsite.com/ */
+    margin: 40px auto;
+    margin-left: 160px;
+    max-width: 1000px;
+    line-height: 1.4;
+    font-size: 18px;
+    color: rgb(84, 88, 88);
+    padding: 0 10px;
+    text-align: center;
+}
+
+
+/* headers and things you want small line height for */
+h1,h2,h3 {
+    line-height: 1.2;
+}
+.smalllh {
+    line-height: 0.4;
+}
+
+
+/* Seperators between blocks of text */
+.line-bg{
+    border-style: solid;
+    border-width: 1px;
+    border-color:rgb(228, 228, 221);
+    margin: 0px 10px 0px 170px;
+}
+.line-sn{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(48, 51, 51);
+    margin: 0px 10px 0px 10px;
+}
+
+
+/* Makes the links appear actually decent */
+a {
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+a:link, a:visited{
+    color: rgb(84, 88, 88);
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(122, 126, 126);
+    text-decoration: none;
+}
+
+a:active{
+    color: rgb(55, 58, 58);
+    text-decoration: none;
+}
+
+
+/* https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
+/* Sidebar navigation */
+.sidenav{
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(27, 29, 29);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #8e8f86;
+    display: block;
+}
+.sidenav a:hover {
+    color: #c0c9c7;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+table, th, td {
+    border-bottom: 1px solid rgb(228, 228, 221);
+    border-collapse: collapse;
+    padding: 2px 20px 2px 20px;
+}
+table {
+    width:100%; 
+    margin-left:0%; 
+    margin-right:0%;
+}
+
+
+.tblBtns {
+    background-color: rgb(248, 247, 241);
+    border: none;
+    font-family: "Georgia", Times, serif;
+    line-height: 1.4;
+    font-size: 18px;
+    color: rgb(84, 88, 88);
+    padding: 0 10px;
+    text-align: center;
+    width: 100%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 4px;
+}
+.tblBtns:hover {
+    background-color: rgb(84, 88, 88); /* Green */
+    color: rgb(248, 247, 241);
+}
+
+
+.titlesTable:before {
+    /* Thank you http://bettermotherfuckingwebsite.com/ */
+    margin: 40px auto;
+    margin-left: 160px;
+    max-width: 1000px;
+    line-height: 1.2;
+    color: rgb(84, 88, 88);
+    padding: 0 10px;
+    text-align: center;
+    content: '   ';
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 10%;
+    margin-right: 25px;
+}
+.circlecol{
+    display: flex;
+    padding-left: 30%;
+}
+.circlebot:before{background-color: #eee655;}
+.circlefun:before{background-color: #58ee55;}
+.circlerm:before{background-color: #8f5eeb;}
+.circlemod:before{background-color: #ee55e1;}
+.circleadmin:before{background-color: #ee5555;}
+.circleother:before{background-color: #55eeee;}

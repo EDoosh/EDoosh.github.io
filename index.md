@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-
+<!DOCTYPE HTML>
 <html>
-    <header>
+    <head>
         <title>AAAAAAAAAAAAA</title>
-    </header>
+        <meta charset="utf-8">
+    </head>
     <body>
         <h1>Title</h1>
+        <p>This is text</p>
     </body>
 </html>

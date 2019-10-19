@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Bot - DooshBot Discord Bot Documentation</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+
+        <link rel = "stylesheet"
+        type = "text/css"
+        href = "dooshbot.css" />
+        <script type="text/javascript" src="cmds.json"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script> 
+            $(function(){
+                $("#sidenav").load("sidenav.html"); 
+            });
+        </script> 
+    </head>
+
+    <body>
+        <div id="sidenav"></div>
+
+        <div class="main">
+            <h1>DooshBot Discord Bot Documentation</h1>
+            <h3>All your commands in one easy to read place.</h3>
+        </div>
+
+        <p class="line-bg"></p>
+
+        <div class="main">
+            <h2 class="circlecolclass" class="circlecol" class="circlebot">Bot Category Commands</h2>
+            <table id="botTable">
+                <tr>
+                    <th>Command Name</th>
+                    <th>Aliases</th>
+                    <th>General description</th>
+                </tr>
+            </table>
+            <script>
+                var allcmds = JSON.parse(cmds);
+                var rowData = '';
+                for(const cmd of allcmds[0]) {
+                    var rowData = rowData + `<tr> <td><button type="button" class="tblBtns">${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
+                };
+                var tableBody = document.createElement('tbody');
+                tableBody.innerHTML = rowData;
+                document.getElementById('botTable').appendChild(tableBody)
+            </script>
+        </div>
+
+        <p class="line-bg"></p>
+
+        <footer>
+            <div class="main" class="smalllh">
+                <h3 class="smalllh"><a href="https://github.com/EDoosh/DooshBot" target="_blank">Check out the project on GitHub!    <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="Github Logo" width="20px"></a></h3>
+                <h3 class="smalllh"><a href="https://discordapp.com/oauth2/authorize/?permissions=8&scope=bot&client_id=619532419061514240" target="_blank">Invite the bot to your server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
+                <h3 class="smalllh"><a href="https://discord.gg/R97xxH7" target="_blank">Join the DooshBot Discord server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
+            </div>
+        </footer>
+    </body>
+</html>

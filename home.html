@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>DooshBot Discord Bot Documentation</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+
+        <link rel = "stylesheet"
+        type = "text/css"
+        href = "dooshbot.css" />
+        <script type="text/javascript" src="cmds.json"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script> 
+            $(function(){
+                $("#sidenav").load("sidenav.html"); 
+            });
+        </script> 
+    </head>
+
+    <body>
+        <div id="sidenav"></div>
+
+        <div class="main">
+            <h1>DooshBot Discord Bot Documentation</h1>
+            <h3>All your commands in one easy to read place.</h3>
+            <p>This is a documentation of all the commands currently in the bot. This may not be perfectly up to date, but I try. If I miss something, or a command isn't explained very well, notify me and I'll add/change it.
+                <br>Otherwise, feedback is greatly appreciated. This is my first time with web development in far too long.
+                <br>At some point in the future I may add documentation on self hosting, and if possible, maybe even an online dashboard for the bot. Not sure about the last one.
+                <br>Good luck with your server and thank you for choosing DooshBot on there!<br>- EDoosh</p>
+        </div>
+
+        <p class="line-bg"></p>
+
+        <div class="main">
+            <h3>
+                <a href="./bot.html">Bot</a> ⠀| ⠀
+                <a href="./fun.html">Fun</a> ⠀| ⠀
+                <a href="./mod.html">Moderation</a>
+            </h3>
+        </div>
+
+        <p class="line-bg"></p>
+
+        <div class="main">
+            <script>
+                // Initialise variables
+                var allcmdcats = ['Bot', 'Fun', 'Role Modify', 'Moderation', 'Administration', 'Other'];
+                var allcmdcatcols = ['', '', '', '', '', ''];
+                // Set allcmds to the cmds.json file we imported earlier
+                var allcmds = JSON.parse(cmds);
+                // rowData stores all the information about the rows.
+                var rowData = '';
+                // For each category
+                for(i=0; i < allcmds.length; i++) {
+                    // Create an h2 element, set the text to '(category name) Category Commands', and add it to the titles class
+                    var headerCat = document.createElement(`H2`)
+                    headerCat.innerHTML = `${allcmdcats[i]} Category Commands`
+                    headerCat.className = "titlesTable"
+                    headerCat.className = "circlecol"
+                    // Create a table element, set some stuff as column headers, and set the class to main
+                    var table = document.createElement(`TABLE`)
+                    table.innerHTML = `<tr> <th>Command Name</th> <th>Aliases</th> <th>General Description</th> </tr>`
+                    table.className = "main"
+                    // For every command in the category, add it's name, alias', and descriptions to rowData
+                    for(const cmd of allcmds[i]) {
+                        var rowData = rowData + `<tr> <td><button type="button" class="tblBtns">${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
+                    };
+                    // Create a table body and add the rowData to it, then append that to the table element we created earlier
+                    var tableBody = document.createElement('tbody');
+                    tableBody.innerHTML = rowData;
+                    table.appendChild(tableBody);
+                    // Add the header category and the table to the body.
+                    document.body.appendChild(headerCat)
+                    document.body.appendChild(table)
+                };
+            </script>
+        </div>
+
+        <p class="line-bg"></p>
+    
+        <footer>
+            <div class="main" class="smalllh">
+                <h3 class="smalllh"><a href="https://github.com/EDoosh/DooshBot" target="_blank">Check out the project on GitHub!    <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="Github Logo" width="20px"></a></h3>
+                <h3 class="smalllh"><a href="https://discordapp.com/oauth2/authorize/?permissions=8&scope=bot&client_id=619532419061514240" target="_blank">Invite the bot to your server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
+                <h3 class="smalllh"><a href="https://discord.gg/R97xxH7" target="_blank">Join the DooshBot Discord server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -36,7 +36,11 @@
             <h3>
                 <a href="./bot.html">Bot</a> ⠀| ⠀
                 <a href="./fun.html">Fun</a> ⠀| ⠀
-                <a href="./mod.html">Moderation</a>
+                <a href="./varperms.html">Music and Role Modify</a>
+                <br>
+                <a href="./mod.html">Moderation</a> ⠀| ⠀
+                <a href="./admin.html">Administration</a> ⠀| ⠀
+                <a href="./other.html">Other</a>
             </h3>
         </div>
 
@@ -45,14 +49,14 @@
         <div class="main">
             <script>
                 // Initialise variables
-                var allcmdcats = ['Bot', 'Fun', 'Role Modify', 'Moderation', 'Administration', 'Other'];
+                var allcmdcats = ['Bot', 'Fun', 'Music and Modify Role', 'Moderation', 'Administration', 'Other'];
                 var allcmdcatcols = ['', '', '', '', '', ''];
                 // Set allcmds to the cmds.json file we imported earlier
                 var allcmds = JSON.parse(cmds);
-                // rowData stores all the information about the rows.
-                var rowData = '';
                 // For each category
                 for(i=0; i < allcmds.length; i++) {
+                    // rowData stores all the information about the rows.
+                    var rowData = '';
                     // Create an h2 element, set the text to '(category name) Category Commands', and add it to the titles class
                     var headerCat = document.createElement(`H2`);
                     headerCat.className = "titlesTable";

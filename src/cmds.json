@@ -1,1 +1,325 @@
-cmds = '[[{"name":"help","alias":"h","desc":"List commands and their descriptions","more":[{"perms":"All","usage":"","description":"DM to the user the help screen."},{"perms":"All","usage":"s","description":"Get help with setting up the bot on your server for the first time."},{"perms":"All","usage":"[command-name]","description":"Display all the sub-commands of a command, and how to use them!"},{"perms":"All","usage":"[category name]","description":"Display all the commands in a category, instead of showing the full list."},{"perms":"All","usage":"c","description":"Send the help screen to the current channel. Can be put in front of any of these commands."}]},{"name":"info","alias":"i","desc":"List information about the bot","more":[{"perms":"All","usage":"","description":"Send information about the bot into your DMs."},{"perms":"All","usage":"c","description":"Send information about the bot into the current channel."}]},{"name":"ping","alias":"None","desc":"Get the latency and ping of the bot.","more":[{"perms":"All","usage":"","description":"Get the latency and ping of the bot."}]}]]';
+cmds = `[
+    [
+        {
+            "name": "help",
+            "alias": "h",
+            "desc": "List commands and their descriptions",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "DM to the user the help screen."
+                }, {
+                    "perms" : "All",
+                    "usage" : "s",
+                    "description" : "Get help with setting up the bot on your server for the first time."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[command-name]",
+                    "description" : "Display all the sub-commands of a command, and how to use them!"
+                }, {
+                    "perms" : "All",
+                    "usage" : "[category name]",
+                    "description" : "Display all the commands in a category, instead of showing the full list."
+                }, {
+                    "perms" : "All",
+                    "usage" : "c",
+                    "description" : "Send the help screen to the current channel. Can be put in front of any of these commands."
+                }
+            ]
+        },
+        {
+            "name": "info",
+            "alias": "i",
+            "desc": "List information about the bot",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Send information about the bot into your DMs."
+                }, {
+                    "perms" : "All",
+                    "usage" : "c",
+                    "description" : "Send information about the bot into the current channel."
+                }
+            ]
+        },
+        {
+            "name": "ping",
+            "alias": "",
+            "desc": "Get the latency and ping of the bot.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Get the latency and ping of the bot."
+                }
+            ]
+        }
+    ], [
+        {
+            "name": "avatar",
+            "alias": "av",
+            "desc": "Get the avatar of a user.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Get your own avatar."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[userRepresentable]",
+                    "description" : "Get the avatar of another user."
+                }
+            ]
+        }, {
+            "name": "bible",
+            "alias": "",
+            "desc": "Gets a bible quote image.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Get the bible quote of the day."
+                }, {
+                    "perms" : "All",
+                    "usage" : "r",
+                    "description" : "Gets a random bible quote image."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[1-366]",
+                    "description" : "Gets a bible quote image from that number."
+                }
+            ]
+        }, {
+            "name": "fact",
+            "alias": "",
+            "desc": "Gets a random fact.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Gets a random fact."
+                }
+            ]
+        }, {
+            "name": "news",
+            "alias": "",
+            "desc": "Get a news article.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Send a random top headline to the channel."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[search term]",
+                    "description" : "Send one of the top 20 articles that match that search term from the past week."
+                }
+            ]
+        }, {
+            "name": "poll",
+            "alias": "",
+            "desc": "Create a poll.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "|[Poll title] |[Option 1] |[Option 2]...",
+                    "description" : "Creates a poll with up to 10 options, seperated by a vertical bar (|)."
+                }
+            ]
+        }, {
+            "name": "getquote",
+            "alias": "q, gq, gquote",
+            "desc": "Get a quote.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "(g)",
+                    "description" : "Gets a random quote from the server, or globally if 'g' is added."
+                }, {
+                    "perms" : "All",
+                    "usage" : "(g) [quoteID]",
+                    "description" : "Get a specified quote from the server, or globally if 'g' is added."
+                }
+            ]
+        }, {
+            "name": "reddit",
+            "alias": "",
+            "desc": "Get a post from reddit.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "[subreddit] (query-limit)",
+                    "description" : "Get a random post from a specified subreddit. Ignore query-limit if you don't know what it does."
+                }
+            ]
+        }, {
+            "name": "take",
+            "alias": "",
+            "desc": "Take it. A tiny game of reverse tag.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Take it. When taken from you, the bot will notify."
+                }, {
+                    "perms" : "All",
+                    "usage" : "g",
+                    "description" : "Get the current person with it."
+                }
+            ]
+        }, {
+            "name": "tellme",
+            "alias": "tm",
+            "desc": "Tells you something on a scale of 0-10.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "[thing]",
+                    "description" : "Tells you something about yourself on a scale of 0-10!"
+                }, {
+                    "perms" : "All",
+                    "usage" : "[userRepresentable] [thing]",
+                    "description" : "Tells you something about another user on a scale of 0-10!"
+                }
+            ]
+        }, {
+            "name": "xkcd",
+            "alias": "",
+            "desc": "Get an xkcd comic.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Get the most recent xkcd."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[xkcdID]",
+                    "description" : "Get that specific xkcd."
+                }, {
+                    "perms" : "All",
+                    "usage" : "r",
+                    "description" : "Get a random xkcd."
+                }
+            ]
+        }
+    ], [
+        {
+            "name": "play",
+            "alias": "p, request, req, search",
+            "desc": "Play a song from YouTube.",
+            "more" : [
+                {
+                    "perms" : "All except MusicBan",
+                    "usage" : "[youtube-link]",
+                    "description" : "Play a song by link from YouTube. Playlists are not supported and likely never will be."
+                }, {
+                    "perms" : "All except MusicBan",
+                    "usage" : "(q) [search term]",
+                    "description" : "Search for videos by search term, and returns list of 10 results. If 'q' is added, it loads quicker but won't show lengths."
+                }
+            ]
+        }, {
+            "name": "now",
+            "alias": "np, playing, nowplaying",
+            "desc": "Shows information about the currently playing song.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Shows information about the currently playing song."
+                }
+            ]
+        }, {
+            "name": "pause",
+            "alias": "resume",
+            "desc": "Pauses / resumes the current music",
+            "more" : [
+                {
+                    "perms" : "DJ",
+                    "usage" : "",
+                    "description" : "Pauses / resumes the current music."
+                }
+            ]
+        }, {
+            "name": "stop",
+            "alias": "stopplaying, end",
+            "desc": "Stop playing a song.",
+            "more" : [
+                {
+                    "perms" : "DJ",
+                    "usage" : "",
+                    "description" : "Stops currently playing song."
+                }, {
+                    "perms" : "DJ",
+                    "usage" : "all",
+                    "description" : "Stops all songs from playing, clears queue, and leaves voice channel."
+                }
+            ]
+        }, {
+            "name": "remove",
+            "alias": "r",
+            "desc": "Removes a song from the queue line-up.",
+            "more" : [
+                {
+                    "perms" : "DJ",
+                    "usage" : "[queueID]",
+                    "description" : "Removes a song from the queue line-up."
+                }
+            ]
+        }, {
+            "name": "volume",
+            "alias": "vol, v",
+            "desc": "Gets / changes the volume.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Gets the current volume of the bot."
+                }, {
+                    "perms" : "DJ",
+                    "usage" : "[0-200]",
+                    "description" : "Changes the volume of the bot. Default & recommended at around 15."
+                }
+            ]
+        }, {
+            "name": "skip",
+            "alias": "s, next, n",
+            "desc": "Skips the current song.",
+            "more" : [
+                {
+                    "perms" : "All except MusicBan",
+                    "usage" : "",
+                    "description" : "Skip the currently playing song. Once VoteMin % is reached, the song skips. Run this command again to cancel your skip vote."
+                }
+            ]
+        }, {
+            "name": "list",
+            "alias": "l, queue",
+            "desc": "Gets / changes the volume.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "(pg#)",
+                    "description" : "List all the songs in the queue."
+                }
+            ]
+        }, {
+            "name": "votemin",
+            "alias": "vm",
+            "desc": "Sets the percentage of users required to skip a song.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Gets the current VoteMin % of the bot."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[0-100]",
+                    "description" : "Set the percentage of users require to skip a song. Default & recommended at 40."
+                }
+            ]
+        }
+    ]
+]`;

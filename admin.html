@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Bot - DooshBot Discord Bot Documentation</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/png" href="./src/favicon.png"/>
+
+        <link rel = "stylesheet"
+        type = "text/css"
+        href = "src/dooshbot.css" />
+        <script type="text/javascript" src="src/cmds.json"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script> 
+            $(function(){
+                $("#sidenav").load("src/sidenav.html");
+                $("#footer").load("src/footer.html");
+                $("#title").load("src/title.html");
+            });
+        </script> 
+    </head>
+
+    <body>
+        <div id="sidenav"></div>
+
+        <div id="title"></div>
+
+        <div class="main">
+            <h2 class="titlesTable circlecol circle4">Administration Category Commands</h2>
+            <table id="botTable">
+                <tr>
+                    <th>Command Name</th>
+                    <th>Aliases</th>
+                    <th>General description</th>
+                </tr>
+            </table>
+            <script>
+                var allcmds = JSON.parse(cmds);
+                var rowData = '';
+                for(const cmd of allcmds[4]) {
+                    var rowData = rowData + `<tr> <td><button type="button" class="tblBtns">${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
+                };
+                var tableBody = document.createElement('tbody');
+                tableBody.innerHTML = rowData;
+                document.getElementById('botTable').appendChild(tableBody)
+            </script>
+        </div>
+
+        <div id="footer"></div>
+    </body>
+</html>

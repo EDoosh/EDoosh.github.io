@@ -3,16 +3,17 @@
     <head>
         <title>DooshBot Discord Bot Documentation</title>
         <meta charset="utf-8">
-        <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="./src/favicon.png"/>
 
         <link rel = "stylesheet"
         type = "text/css"
-        href = "dooshbot.css" />
-        <script type="text/javascript" src="cmds.json"></script>
+        href = "src/dooshbot.css" />
+        <script type="text/javascript" src="src/cmds.json"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script> 
             $(function(){
-                $("#sidenav").load("sidenav.html"); 
+                $("#sidenav").load("src/sidenav.html");
+                $("#footer").load("src/footer.html");
             });
         </script> 
     </head>
@@ -53,14 +54,15 @@
                 // For each category
                 for(i=0; i < allcmds.length; i++) {
                     // Create an h2 element, set the text to '(category name) Category Commands', and add it to the titles class
-                    var headerCat = document.createElement(`H2`)
-                    headerCat.innerHTML = `${allcmdcats[i]} Category Commands`
-                    headerCat.className = "titlesTable"
-                    headerCat.className = "circlecol"
+                    var headerCat = document.createElement(`H2`);
+                    headerCat.className = "titlesTable";
+                    headerCat.classList.add("circlecol");
+                    headerCat.classList.add(`circle${i}`);
+                    headerCat.innerHTML = `${allcmdcats[i]} Category Commands`;
                     // Create a table element, set some stuff as column headers, and set the class to main
-                    var table = document.createElement(`TABLE`)
-                    table.innerHTML = `<tr> <th>Command Name</th> <th>Aliases</th> <th>General Description</th> </tr>`
-                    table.className = "main"
+                    var table = document.createElement(`TABLE`);
+                    table.innerHTML = `<tr> <th>Command Name</th> <th>Aliases</th> <th>General Description</th> </tr>`;
+                    table.className = "main";
                     // For every command in the category, add it's name, alias', and descriptions to rowData
                     for(const cmd of allcmds[i]) {
                         var rowData = rowData + `<tr> <td><button type="button" class="tblBtns">${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
@@ -70,20 +72,12 @@
                     tableBody.innerHTML = rowData;
                     table.appendChild(tableBody);
                     // Add the header category and the table to the body.
-                    document.body.appendChild(headerCat)
-                    document.body.appendChild(table)
+                    document.body.appendChild(headerCat);
+                    document.body.appendChild(table);
                 };
             </script>
         </div>
 
-        <p class="line-bg"></p>
-    
-        <footer>
-            <div class="main" class="smalllh">
-                <h3 class="smalllh"><a href="https://github.com/EDoosh/DooshBot" target="_blank">Check out the project on GitHub!    <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="Github Logo" width="20px"></a></h3>
-                <h3 class="smalllh"><a href="https://discordapp.com/oauth2/authorize/?permissions=8&scope=bot&client_id=619532419061514240" target="_blank">Invite the bot to your server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
-                <h3 class="smalllh"><a href="https://discord.gg/R97xxH7" target="_blank">Join the DooshBot Discord server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
-            </div>
-        </footer>
+        <div id="footer"></div>
     </body>
 </html>

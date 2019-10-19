@@ -3,23 +3,22 @@
     <head>
         <title>Bot - DooshBot Discord Bot Documentation</title>
         <meta charset="utf-8">
-        <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="./src/favicon.png"/>
 
         <link rel = "stylesheet"
         type = "text/css"
-        href = "dooshbot.css" />
-        <script type="text/javascript" src="cmds.json"></script>
+        href = "./src/dooshbot.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script> 
+            $(function(){
+                $("#sidenav").load("src/sidenav.html");
+                $("#footer").load("src/footer.html");
+            });
+        </script> 
     </head>
 
     <body>
-        <div class="sidenav">
-            <a href="./home.html">Home</a>
-            <p class="line-sn"></p>
-            <a href="./bot.html">Bot</a>
-            <a href="./fun.html">Fun</a>
-            <a href="./mod.html">Moderation</a>
-        </div>
+        <div id="sidenav"></div>
 
         <div class="main">
             <h1>DooshBot Discord Bot Documentation</h1>
@@ -33,14 +32,6 @@
                 <br>Look over at the sidebar to be redirected to one of those pages, or <a href="./home.html">click here to be redirected to the homepage.</a></h3>
         </div>
 
-        <p class="line-bg"></p>
-
-        <footer>
-            <div class="main" class="smalllh">
-                <h3 class="smalllh"><a href="https://github.com/EDoosh/DooshBot" target="_blank">Check out the project on GitHub!    <img src="https://image.flaticon.com/icons/svg/25/25231.svg" alt="Github Logo" width="20px"></a></h3>
-                <h3 class="smalllh"><a href="https://discordapp.com/oauth2/authorize/?permissions=8&scope=bot&client_id=619532419061514240" target="_blank">Invite the bot to your server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
-                <h3 class="smalllh"><a href="https://discord.gg/R97xxH7" target="_blank">Join the DooshBot Discord server!    <img src="https://cdn0.iconfinder.com/data/icons/free-social-media-set/24/discord-512.png" alt="Discord Logo" width="20px"></a></h3>
-            </div>
-        </footer>
+        <div id="footer"></div>
     </body>
 </html>

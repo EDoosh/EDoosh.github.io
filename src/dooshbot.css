@@ -132,13 +132,6 @@ table {
 
 .titlesTable:before {
     /* Thank you http://bettermotherfuckingwebsite.com/ */
-    margin: 40px auto;
-    margin-left: 160px;
-    max-width: 1000px;
-    line-height: 1.2;
-    color: rgb(84, 88, 88);
-    padding: 0 10px;
-    text-align: center;
     content: '   ';
     height: 25px;
     width: 25px;
@@ -148,11 +141,19 @@ table {
 }
 .circlecol{
     display: flex;
-    padding-left: 30%;
 }
-.circlebot:before{background-color: #eee655;}
-.circlefun:before{background-color: #58ee55;}
-.circlerm:before{background-color: #8f5eeb;}
-.circlemod:before{background-color: #ee55e1;}
-.circleadmin:before{background-color: #ee5555;}
-.circleother:before{background-color: #55eeee;}
+.titlesTable {
+    margin: 40px auto;
+    margin-left: 160px;
+    max-width: 1000px;
+    line-height: 1.2;
+    color: rgb(84, 88, 88);
+    padding-left: 17%;
+    text-align: center;
+}
+.circle0:before{background-color: #eee655;}
+.circle1:before{background-color: #58ee55;}
+.circle2:before{background-color: #8f5eeb;}
+.circle3:before{background-color: #ee55e1;}
+.circle4:before{background-color: #ee5555;}
+.circle5:before{background-color: #55eeee;}

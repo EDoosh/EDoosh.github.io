@@ -1,11 +1,9 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>AAAAAAAAAAAAA</title>
-        <meta charset="utf-8">
+        <meta http-equiv="Refresh" content="7; url=page/home.html" />
     </head>
     <body>
-        <h1>Title</h1>
-        <p>This is text</p>
+        <p>Redirecting to main page. Please follow <a href="page/home.html">this link</a>.</p>
     </body>
 </html>

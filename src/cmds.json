@@ -297,7 +297,7 @@ cmds = `[
         }, {
             "name": "list",
             "alias": "l, queue",
-            "desc": "Gets / changes the volume.",
+            "desc": "List all the songs in the queue.",
             "more" : [
                 {
                     "perms" : "All",
@@ -318,6 +318,346 @@ cmds = `[
                     "perms" : "Admin",
                     "usage" : "[0-100]",
                     "description" : "Set the percentage of users require to skip a song. Default & recommended at 40."
+                }
+            ]
+        }, {
+            "name": "er",
+            "alias": "editrole, e-r, edit-role",
+            "desc": "Create, edit, and delete your own custom role.",
+            "more" : [
+                {
+                    "perms" : "RoleModify",
+                    "usage" : "[create | c] [#hex] [name]",
+                    "description" : "Creates a custom role with that colour and name, then applies it to you."
+                }, {
+                    "perms" : "RoleModify",
+                    "usage" : "[color | colour | cr | cl] [#hex]",
+                    "description" : "Changes the colour of your existing custom role."
+                }, {
+                    "perms" : "RoleModify",
+                    "usage" : "[name | n] [name]",
+                    "description" : "Changes the name of your existing custom role."
+                }, {
+                    "perms" : "RoleModify",
+                    "usage" : "[toggle | t]",
+                    "description" : "Allows you to toggle between having and not having your custom role."
+                }, {
+                    "perms" : "RoleModify",
+                    "usage" : "[repos | rp | pos]",
+                    "description" : "Repositions your custom role to just above your highest."
+                }, {
+                    "perms" : "RoleModify",
+                    "usage" : "[delete | d]",
+                    "description" : "Delete your custom role."
+                }
+            ]
+        }
+    ], [
+        {
+            "name": "clear",
+            "alias": "c",
+            "desc": "Clear a certain number of messages.",
+            "more" : [
+                {
+                    "perms" : "Mod",
+                    "usage" : "[1-99]",
+                    "description" : "Clear a specified number of messages."
+                }, {
+                    "perms" : "Mod",
+                    "usage" : "[0-99] [reason]",
+                    "description" : "Clear a specified number of messages and provides a reason for Log Channel."
+                }
+            ]
+        }, {
+            "name": "kick",
+            "alias": "k",
+            "desc": "Kick a user for a specified reason.",
+            "more" : [
+                {
+                    "perms" : "Mod",
+                    "usage" : "[userRepresentable] (reason)",
+                    "description" : "Kick a user and DM them the reason if provided. Reason is also used in Log Channel."
+                }, {
+                    "perms" : "Mod",
+                    "usage" : "[userRepresentable] s (reason)",
+                    "description" : "Soft-Kick a user and uses the reason provided in Log Channel."
+                }
+            ]
+        }, {
+            "name": "quote",
+            "alias": "",
+            "desc": "Create or delete a quote.",
+            "more" : [
+                {
+                    "perms" : "Mod",
+                    "usage" : "add [messageID]",
+                    "description" : "Create a quote via its Message ID."
+                }, {
+                    "perms" : "Mod",
+                    "usage" : "remove [quoteID]",
+                    "description" : "Remove a quote through its Quote ID."
+                }
+            ]
+        }, {
+            "name": "warn",
+            "alias": "w",
+            "desc": "Warn a user for a specified reason.",
+            "more" : [
+                {
+                    "perms" : "Mod",
+                    "usage" : "[userRepresentable] (reason)",
+                    "description" : "Warn a user once. If a reason is specified, that is used in Log Channel."
+                }, {
+                    "perms" : "Mod",
+                    "usage" : "[userRepresentable] [2-20] (reason)",
+                    "description" : "Warn a user for the number of times provided. If a reason is specified, that is used in Log Channel."
+                }
+            ]
+        }, {
+            "name": "warnings",
+            "alias": "warns, ws",
+            "desc": "Clear, Delete, List, and Count the number of warns a user has.",
+            "more" : [
+                {
+                    "perms" : "Mod",
+                    "usage" : "[userRepresentable] list",
+                    "description" : "List all the warnings a user has."
+                }, {
+                    "perms" : "Mod",
+                    "usage" : "[userRepresentable] count",
+                    "description" : "Display the number of warns a user has."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[userRepresentable] deleteid [warnID] (reason)",
+                    "description" : "Delete a warn by its Warn ID. If reason is specified, use that in logchannel."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[userRepresentable] clear",
+                    "description" : "Clear all the warns a user has."
+                }
+            ]
+        }, {
+            "name": "embed",
+            "alias": "emb",
+            "desc": "Creates an embed.",
+            "more" : [
+                {
+                    "perms" : "Mod",
+                    "usage" : "help",
+                    "description" : "Displays a list of all the flags you can use to create an embed."
+                }, {
+                    "perms" : "Mod",
+                    "usage" : "[flags]",
+                    "description" : "Creates an embed with those flags and values."
+                }
+            ]
+        }
+    ], [
+        {
+            "name": "ban",
+            "alias": "b",
+            "desc": "Ban a user for a specified reason.",
+            "more" : [
+                {
+                    "perms" : "Admin",
+                    "usage" : "[userRepresentable] (reason)",
+                    "description" : "Ban a user and DM them the reason if specified. Reason is also used in Log Channel."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[userRepresentable] s (reason)",
+                    "description" : "Soft-Ban a user and don't DM them. Reason is used in Log Channel."
+                }
+            ]
+        }, {
+            "name": "jl",
+            "alias": "joinleave",
+            "desc": "Sets the join and leave messages and roles.",
+            "more" : [
+                {
+                    "perms" : "Admin",
+                    "usage" : "h",
+                    "description" : "Shows the help screen for joinleave, as there is a lot to it."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[b | m] ar",
+                    "description" : "List all the roles given to a bot or member on join."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[b | m] ar [roleRepresentable]",
+                    "description" : "Add an auto-role for bots or members. Removes if it's already in the list."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[b | m] [j | l]",
+                    "description" : "List all the messages on the server that are sent when a bot or member joins/leaves."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[b | m] [j | l] [channelRepresentable]",
+                    "description" : "List all the messages in the channel that are sent whena  bot or member joins/leaves."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[b | m] [j | l] [channelRepresentable] [0-9] [message]",
+                    "description" : "Creates a new message that will be sent to the channe when a bot or member joins/leaves.<br>If the number is 0, it will always send. Otherwise, it will randomize out of all of the ones with the same number which to send."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[b | m] [j | l] [jlID]",
+                    "description" : "Removes a message from the server by its jlID."
+                }
+            ]
+        }, {
+            "name": "modify",
+            "alias": "m",
+            "desc": "Modify a role or channels bot data.",
+            "more" : [
+                {
+                    "perms" : "Admin",
+                    "usage" : "[mod-role | admin-role | role-modify | musicban | dj-role]",
+                    "description" : "List all the roles with that permission."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[mod-role | admin-role | role-modify | musicban | dj-role] [roleRepresentable]",
+                    "description" : "Adds a role to that position. If it already has the permission, it will remove it."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[log-channel | quote-channel | bot-updates]",
+                    "description" : "Displays the current channel for it."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[log-channel | quote-channel | bot-updates] off",
+                    "description" : "Turns off the bot sending messages to that channel."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[log-channel | quote-channel | bot-updates] [channelRepresentable]",
+                    "description" : "Sets the channel to send those messages to."
+                }
+            ]
+        }, {
+            "name": "plvl",
+            "alias": "permlvl, permslvl, permissionslvl, plevel, permlevel, permslevel, permissionslevel",
+            "desc": "Server config command.",
+            "more" : [
+                {
+                    "perms" : "Admin",
+                    "usage" : "[kick | ban | notify]",
+                    "description" : "Get the amount of warns required to kick/ban/notify a user."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[kick | ban | notify] [warn-count]",
+                    "description" : "Set the amount of warns required to kick/ban/notify."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[kick | ban | notify] 0",
+                    "description" : "Disables kicking/banning/notifying."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "serverlevels [true | false]",
+                    "description" : "Enables/disables server levelling, level-up messages, and level roles."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "levelmessages [min-levels]",
+                    "description" : "Sets the minimum required levels for level-up messages to send."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "globalmessages [true | false]",
+                    "description" : "Enables/disables level-up messages for when a user globally levels up.<br>If enabled, it still won't send if serverlevels or levelmessages requirements aren't met."
+                }
+            ]
+        }, {
+            "name": "prefix",
+            "alias": "pref, pre, px",
+            "desc": "Set the server prefix.",
+            "more" : [
+                {
+                    "perms" : "Admin",
+                    "usage" : "",
+                    "description" : "Sends the DooshBot prefix."
+                }, {
+                    "perms" : "Admin",
+                    "usage" : "[new-prefix]",
+                    "description" : "Set a new DooshBot server prefix."
+                }
+            ]
+        }, {
+            "name": "rr",
+            "alias": "mi",
+            "desc": "Get information about yourself or another user.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Gets information about yourself."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[userRepresentable]",
+                    "description" : "Gets information about the specified user."
+                }
+            ]
+        }, {
+            "name": "unban",
+            "alias": "ub",
+            "desc": "Unban a user.",
+            "more" : [
+                {
+                    "perms" : "Admin",
+                    "usage" : "[userID] (reason)",
+                    "description" : "Unban a user. If a reason is provided, it is used in the Log Channel."
+                }
+            ]
+        }
+    ], [
+        {
+            "name": "guildinfo",
+            "alias": "gi",
+            "desc": "Gets a little bit of information about the guild.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Gets information about the current guild."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[guildID]",
+                    "description" : "Gets information about the guild with that ID, provided the bot is in there."
+                }
+            ]
+        }, {
+            "name": "memberinfo",
+            "alias": "mi",
+            "desc": "Get information about yourself or another user.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Gets information about yourself."
+                }, {
+                    "perms" : "All",
+                    "usage" : "[userRepresentable]",
+                    "description" : "Gets information about the specified user."
+                }
+            ]
+        }, {
+            "name": "level",
+            "alias": "lvl",
+            "desc": "Does stuff with the levels system.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "(g) (userRepresentable)",
+                    "description" : "Get your own or another users server level and rank. If 'g' is added, it gets the global levels data."
+                }, {
+                    "perms" : "All",
+                    "usage" : "(g) top (pg#)",
+                    "description" : "Gets the leaderboard. If the 'g' modifier is added, it gets the global leaderboard."
+                }
+            ]
+        }, {
+            "name": "getdbprefix",
+            "alias": "",
+            "desc": "Sends the current DooshBot prefix. Does not require the prefix in front.",
+            "more" : [
+                {
+                    "perms" : "All",
+                    "usage" : "",
+                    "description" : "Sends the current DooshBot prefix. Does not require the prefix in front."
                 }
             ]
         }

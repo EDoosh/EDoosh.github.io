@@ -159,8 +159,6 @@ table {
 
 .tableInfoBG {
     background-color: var(--tblBG);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
     transition: 0.5s 0s All ease-out;
     margin-top: var(--mvmon);
 }

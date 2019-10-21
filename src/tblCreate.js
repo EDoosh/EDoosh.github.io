@@ -11,7 +11,7 @@ function tblCreate(id) {
     table.setAttribute("id", `table${id}`);
     var rowData = '';
     for(const cmd of allcmds[id]) {
-        rowData += `<tr class="bottomBorder"> <td><button type="button" class="tblBtns" onclick="btnPress(${id}, ${allcmds[id].indexOf(cmd)})">${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
+        rowData += `<tr class="bottomBorder"> <td><button type="button" class="tblBtns alleft" onclick="btnPress(${id}, ${allcmds[id].indexOf(cmd)})">-=${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
     };
     var tableBody = document.createElement('TBODY');
     tableBody.innerHTML = rowData;

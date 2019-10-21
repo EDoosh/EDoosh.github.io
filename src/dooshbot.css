@@ -2,6 +2,7 @@
 * {
     font-family: "Georgia", Times, serif;
     --navsize: 350px;
+    transition-duration: var(--transtime);
 }
 
 
@@ -13,6 +14,8 @@
     --p4: rgb(122, 126, 126);
     --navbg: rgb(27, 29, 29);
     --navhov: #c0c9c7;
+    --tblBG: rgb(230, 228, 221);
+    --transtime: 0.1s;
 }
 [data-theme="dark"]{
     --bg-col: rgb(27, 29, 29);
@@ -22,6 +25,7 @@
     --p1: rgb(122, 126, 126);
     --navbg: rgb(18, 19, 19);
     --navhov: #505353;
+    --tblBG: rgb(37, 39, 39);
 }
 /* Everything not in the sidebar */
 body {background-color: var(--bg-col);}
@@ -101,7 +105,7 @@ a:active{
     }
 }
 table, th, td {
-    border-bottom: 1px solid var(--p2);
+    /* border-bottom: 1px solid var(--p2); */
     border-collapse: collapse;
     padding: 2px 20px 2px 20px;
 }
@@ -110,6 +114,7 @@ table {
     margin-left:0%; 
     margin-right:0%;
 }
+.bottomBorder {border-bottom: 1px solid var(--p2);}
 .tblBtns {
     background-color: var(--bg-col);
     border: none;
@@ -138,12 +143,10 @@ table {
 }
 .circlecol{display: flex;}
 .titlesTable {
-    margin: 40px auto;
-    margin-left: var(--navsize);
+    margin-left: calc(var(--navsize) + 100px);
     max-width: 1000px;
     line-height: 1.2;
     color: var(--p1);
-    margin-left: auto;
     text-align: center;
 }
 .circle0:before{background-color: #eee655;}
@@ -153,3 +156,14 @@ table {
 .circle4:before{background-color: #ee5555;}
 .circle5:before{background-color: #55eeee;}
 .circle6:before{background-color: #eeeeee;}
+
+.tableInfoBG {
+    background-color: var(--tblBG);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.5s 0s All ease-out;
+    margin-top: var(--mvmon);
+}
+.alleft {
+    text-align: left;
+}

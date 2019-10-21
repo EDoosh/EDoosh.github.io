@@ -9,6 +9,8 @@
         type = "text/css"
         href = "src/dooshbot.css" />
         <script type="text/javascript" src="src/cmds.json"></script>
+        <script type="text/javascript" src="src/btnPress.js"></script>
+        <script type="text/javascript" src="src/tblCreate.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script> 
             $(function(){
@@ -26,23 +28,10 @@
         <div id="title"></div>
 
         <div class="main">
-            <h2 class="titlesTable circlecol circle5">Other Category Commands</h2>
-            <table id="botTable">
-                <tr>
-                    <th>Command Name</th>
-                    <th>Aliases</th>
-                    <th>General description</th>
-                </tr>
-            </table>
             <script>
-                var allcmds = JSON.parse(cmds);
-                var rowData = '';
-                for(const cmd of allcmds[5]) {
-                    var rowData = rowData + `<tr> <td><button type="button" class="tblBtns">${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
-                };
-                var tableBody = document.createElement('tbody');
-                tableBody.innerHTML = rowData;
-                document.getElementById('botTable').appendChild(tableBody)
+                var curon = null;
+                const allcmds = JSON.parse(cmds);
+                tblCreate(5);
             </script>
         </div>
 

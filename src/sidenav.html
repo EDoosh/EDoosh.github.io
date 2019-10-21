@@ -1,9 +1,6 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <link rel = "stylesheet"
-        type = "text/css"
-        href = "src/dooshbot.css" />
         <style>
             .theme-switch-wrapper {
                 display: flex;
@@ -65,44 +62,49 @@
 
     <body>
         <div class="sidenav">
-            <!-- https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8 -->
-            <div class="theme-switch-wrapper">
-                <p class="circlecol circle6 navbarCircle navbarMargin"><a href="./home.html">Home</a></p>
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
-                <script>
-                    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-                    function switchTheme(e) {
-                        if (e.target.checked) {
-                            document.documentElement.setAttribute('data-theme', 'dark');
-                            localStorage.setItem('theme', 'dark'); //add this
+            <nav>
+                <!-- https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8 -->
+                <div class="theme-switch-wrapper">
+                    <p class="circlecol circle6 navbarCircle navbarMargin"><a href="./index.html">Home</a></p>
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                    <script>
+                        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+                        function switchTheme(e) {
+                            if (e.target.checked) {
+                                document.documentElement.setAttribute('data-theme', 'dark');
+                                localStorage.setItem('theme', 'dark'); //add this
+                            }
+                            else {
+                                document.documentElement.setAttribute('data-theme', 'light');
+                                localStorage.setItem('theme', 'light'); //add this
+                            }    
                         }
-                        else {
-                            document.documentElement.setAttribute('data-theme', 'light');
-                            localStorage.setItem('theme', 'light'); //add this
-                        }    
-                    }
-                    toggleSwitch.addEventListener('change', switchTheme, false)
+                        toggleSwitch.addEventListener('change', switchTheme, false)
 
-                    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-                    if (currentTheme) {
-                        document.documentElement.setAttribute('data-theme', currentTheme);
+                        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+                        if (currentTheme) {
+                            document.documentElement.setAttribute('data-theme', currentTheme);
 
-                        if (currentTheme === 'dark') {
-                            toggleSwitch.checked = true;
+                            if (currentTheme === 'dark') {
+                                toggleSwitch.checked = true;
+                            }
                         }
-                    }
-                </script>
-            </div>
-            <p class="line-sn"></p>
-            <p class="circlecol circle0 navbarCircle"><a href="./bot.html">Bot</a></p>
-            <p class="circlecol circle1 navbarCircle"><a href="./fun.html">Fun</a></p>
-            <p class="circlecol circle2 navbarCircle"><a href="./varperms.html">Music and Role Modify</a></p>
-            <p class="circlecol circle3 navbarCircle"><a href="./mod.html">Moderation</a></p>
-            <p class="circlecol circle4 navbarCircle"><a href="./admin.html">Administration</a></p>
-            <p class="circlecol circle5 navbarCircle"><a href="./other.html">Other</a></p>
+                        setTimeout(() => {
+                            document.documentElement.style.setProperty('--transtime', '0.5s');
+                        }, 500)
+                    </script>
+                </div>
+                <p class="line-sn"></p>
+                <p class="circlecol circle0 navbarCircle"><a href="./bot.html">Bot</a></p>
+                <p class="circlecol circle1 navbarCircle"><a href="./fun.html">Fun</a></p>
+                <p class="circlecol circle2 navbarCircle"><a href="./varperms.html">Music and Role Modify</a></p>
+                <p class="circlecol circle3 navbarCircle"><a href="./mod.html">Moderation</a></p>
+                <p class="circlecol circle4 navbarCircle"><a href="./admin.html">Administration</a></p>
+                <p class="circlecol circle5 navbarCircle"><a href="./other.html">Other</a></p>
+            </nav>
         </div>
     </body>
 </html>

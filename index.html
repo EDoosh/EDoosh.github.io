@@ -9,6 +9,8 @@
         type = "text/css"
         href = "src/dooshbot.css" />
         <script type="text/javascript" src="src/cmds.json"></script>
+        <script type="text/javascript" src="src/btnPress.js"></script>
+        <script type="text/javascript" src="src/tblCreate.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script> 
             $(function(){
@@ -49,36 +51,13 @@
 
         <div class="main">
             <script>
-                // Initialise variables
-                var allcmdcats = ['Bot', 'Fun', 'Music and Modify Role', 'Moderation', 'Administration', 'Other'];
-                var allcmdcatcols = ['', '', '', '', '', ''];
+                // Init var for buttons
+                let curon = null;
                 // Set allcmds to the cmds.json file we imported earlier
                 var allcmds = JSON.parse(cmds);
                 // For each category
                 for(i=0; i < allcmds.length; i++) {
-                    // rowData stores all the information about the rows.
-                    var rowData = '';
-                    // Create an h2 element, set the text to '(category name) Category Commands', and add it to the titles class
-                    var headerCat = document.createElement(`H2`);
-                    headerCat.className = "titlesTable";
-                    headerCat.classList.add("circlecol");
-                    headerCat.classList.add(`circle${i}`);
-                    headerCat.innerHTML = `${allcmdcats[i]} Category Commands`;
-                    // Create a table element, set some stuff as column headers, and set the class to main
-                    var table = document.createElement(`TABLE`);
-                    table.innerHTML = `<tr> <th>Command Name</th> <th>Aliases</th> <th>General Description</th> </tr>`;
-                    table.className = "main";
-                    // For every command in the category, add it's name, alias', and descriptions to rowData
-                    for(const cmd of allcmds[i]) {
-                        var rowData = rowData + `<tr> <td><button type="button" class="tblBtns">${cmd.name}</button></td> <td><em>${cmd.alias}</em></td> <td>${cmd.desc}</td></tr>`;
-                    };
-                    // Create a table body and add the rowData to it, then append that to the table element we created earlier
-                    var tableBody = document.createElement('tbody');
-                    tableBody.innerHTML = rowData;
-                    table.appendChild(tableBody);
-                    // Add the header category and the table to the body.
-                    document.body.appendChild(headerCat);
-                    document.body.appendChild(table);
+                    tblCreate(i)
                 };
             </script>
         </div>

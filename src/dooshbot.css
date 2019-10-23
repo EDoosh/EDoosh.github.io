@@ -12,7 +12,7 @@
     --p2: rgb(228, 228, 221);
     --p3: rgb(48, 51, 51);
     --p4: rgb(122, 126, 126);
-    --navbg: rgb(27, 29, 29);
+    --navbg: rgb(33, 36, 36);
     --navhov: #c0c9c7;
     --tblBG: rgb(230, 228, 221);
     --transtime: 0.1s;
@@ -105,8 +105,9 @@ a:active{
     }
 }
 table, th, td {
-    /* border-bottom: 1px solid var(--p2); */
     border-collapse: collapse;
+}
+.tablepding {
     padding: 2px 20px 2px 20px;
 }
 table {
@@ -164,4 +165,19 @@ table {
 }
 .alleft {
     text-align: left;
+}
+.tblwidths th:nth-child(1) td:nth-child(1){
+    column-width: 30px;
+}
+.tblwidths th:nth-child(2) td:nth-child(2){
+    column-width: 20px;
+}
+.tblwidths th:nth-child(3) td:nth-child(3){
+    column-width: 50px;
+}
+
+
+.expand {
+    display: none;
+    width: 100%;
 }

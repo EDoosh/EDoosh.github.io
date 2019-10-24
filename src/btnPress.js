@@ -1,41 +1,45 @@
 function btnPress(cat, cmd) {
-    console.log('e')
     let oldelement = document.getElementById('tableInfo');
-    var upper = allcmds[cat][cmd]
+    var upper = allcmds[cat][cmd];
+    curon = curon ? curon : [null, null];
+    let olddata = curon;
     if(oldelement) {
-        $('.expand').slideUp(500, 'easeInOutSine', () => {
+        $('.expand').animate({ height: 0 }, 500, () => {
             oldelement.remove();
-            // let oldelement = document.getElementById('tableInfo');
+            if(olddata[0]){
+                let oldtbl = document.getElementById(`table${olddata[1]}`).rows;
+                for(i=0; i < oldtbl.length; i++) {
+                    if(i == cmd+1 && olddata[0] != upper.name) continue;
+                    oldtbl[i].classList.add('bottomBorder');
+                };
+            };
         });
-    }
-    curon = curon ? curon : [null, null]
+    };
     if(curon[0] == upper.name) {
         curon = [null, null];
         return;
     };
-    let oldcat = curon[1]
     curon = [upper.name, cat];
-    var headings = '<tr class="bottomBorder"><th>Command Usage</th><th>Permission</th><th>Description</th></tr>';
+    var headings = '<tr class="bottomBorder"><th class="tblwidth1">Command Usage</th><th class="tblwidth2">Permission</th><th class="tblwidth3">Description</th></tr>';
     var rows = [];
     var j = upper.more.length;
     for(var i = 0; i < j; i++) {
-        rows[i] = `<tr ${(i < j - 1) ? `class="bottomBorder"` : ''}><td class="alleft">-=${upper.name[0]} ${upper.more[i].usage}</td><td>${upper.more[i].perms}</td><td>${upper.more[i].description}</td></tr>`;
+        rows[i] = `<tr ${(i < j - 1) ? `class="bottomBorder"` : ''}><td class="alleft tblwidth1">-=${upper.name[0]} ${upper.more[i].usage}</td><td class="tblwidth2">${upper.more[i].perms}</td><td class="tblwidth3">${upper.more[i].description}</td></tr>`;
     };
     
 
-    var tbl = (!oldelement || oldelement.rowIndex > cmd+2 || oldcat != curon[1]) ? document.getElementById(`table${cat}`).insertRow(cmd+2) : document.getElementById(`table${cat}`).insertRow(cmd+3);
+    var a = (!oldelement || oldelement.rowIndex > cmd+2 || olddata[1] != curon[1]) ? cmd+2 : cmd+3;
+    document.getElementById(`table${cat}`).rows[a-1].classList.remove('bottomBorder');
+    let tbl = document.getElementById(`table${cat}`).insertRow(a);
     tbl.className = "bottomBorder";
     tbl.setAttribute("id", `tableInfo`);
     let tblcell = tbl.insertCell(0);
     tblcell.colSpan = "3";
     tblcell.innerHTML = '<div class="expand"><table class="tableInfoBG" id="tableInfo"><thead>' + headings + '</thead><tbody>' + rows.join('') + '</tbody></table></div>';
-    $(".expand").hide(0);
-    $(".expand").slideDown(500, 'easeInOutSine');
+    let toBeHeight = $(".expand").height();
+    $(".expand").css( {height: '0px'}).animate({ height: toBeHeight }, 500);
 };
 
 
 // To fix
 //   Jumping at the end of the transition.
-//   Padding
-//   command has bottomBorder
-//   Fixed widths for tables

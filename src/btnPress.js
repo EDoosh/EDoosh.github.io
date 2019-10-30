@@ -4,16 +4,14 @@ function btnPress(cat, cmd) {
     curon = curon ? curon : [null, null];
     let olddata = curon;
     if(oldelement) {
-        $('.expand').animate({ height: 0 }, 500, () => {
-            oldelement.remove();
-            if(olddata[0]){
-                let oldtbl = document.getElementById(`table${olddata[1]}`).rows;
-                for(i=0; i < oldtbl.length; i++) {
-                    if(i == cmd+1 && olddata[0] != upper.name) continue;
-                    oldtbl[i].classList.add('bottomBorder');
-                };
+        oldelement.remove();
+        if(olddata[0]){
+            let oldtbl = document.getElementById(`table${olddata[1]}`).rows;
+            for(i=0; i < oldtbl.length; i++) {
+                if(i == cmd+1 && olddata[0] != upper.name) continue;
+                oldtbl[i].classList.add('bottomBorder');
             };
-        });
+        };
     };
     if(curon[0] == upper.name) {
         curon = [null, null];
@@ -36,8 +34,6 @@ function btnPress(cat, cmd) {
     let tblcell = tbl.insertCell(0);
     tblcell.colSpan = "3";
     tblcell.innerHTML = '<div class="expand"><table class="tableInfoBG" id="tableInfo"><thead>' + headings + '</thead><tbody>' + rows.join('') + '</tbody></table></div>';
-    let toBeHeight = $(".expand").height();
-    $(".expand").css( {height: '0px'}).animate({ height: toBeHeight }, 500);
 };
 
 

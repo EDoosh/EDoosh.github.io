@@ -164,7 +164,9 @@ table {
 .tableInfoBG {
     background-color: var(--tblBG);
     transition: 0.5s 0s All ease-out;
-    margin-top: var(--mvmon);
+    border-radius: 5px;
+    margin-top: 2px;
+    margin-bottom: 10px;
 }
 .alleft {
     text-align: left;

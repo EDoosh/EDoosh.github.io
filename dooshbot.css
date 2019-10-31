@@ -1,0 +1,190 @@
+/* Everything */
+* {
+    font-family: "Georgia", Times, serif;
+    --navsize: 350px;
+    transition-duration: var(--transtime);
+}
+
+
+:root {
+    --bg-col: rgb(248, 247, 241);
+    --p1: rgb(84, 88, 88);
+    --p2: rgb(228, 228, 221);
+    --p3: rgb(48, 51, 51);
+    --p4: rgb(122, 126, 126);
+    --navbg: rgb(33, 36, 36);
+    --navhov: #c0c9c7;
+    --tblBG: rgb(230, 228, 221);
+    --transtime: 0.1s;
+}
+[data-theme="dark"]{
+    --bg-col: rgb(27, 29, 29);
+    --p4: rgb(84, 88, 88);
+    --p3: rgb(228, 228, 221);
+    --p2: rgb(48, 51, 51);
+    --p1: rgb(122, 126, 126);
+    --navbg: rgb(18, 19, 19);
+    --navhov: #505353;
+    --tblBG: rgb(37, 39, 39);
+}
+/* Everything not in the sidebar */
+body {background-color: var(--bg-col);}
+.main {
+    /* Thank you http://bettermotherfuckingwebsite.com/ */
+    margin: 40px auto;
+    margin-left: var(--navsize);
+    max-width: 1000px;
+    line-height: 1.4;
+    font-size: 18px;
+    color: var(--p1);
+    padding: 0 10px;
+    text-align: center;
+}
+/* headers and things you want small line height for */
+h1,h2,h3 {line-height: 1.2;}
+.smalllh {line-height: 0.4;}
+/* Seperators between blocks of text */
+.line-bg{
+    border-style: solid;
+    border-width: 1px;
+    border-color:var(--p2);
+    margin: 0px 10px 0px var(--navsize);
+}
+.line-sn{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(48, 51, 51);
+    margin: 0px 10px 0px 10px;
+}
+
+
+/* Makes the links appear actually decent */
+a {
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+a:link, a:visited{
+    color: var(--p1);
+    text-decoration: none;
+}
+a:hover{
+    color: var(--p4);
+    text-decoration: none;
+}
+a:active{
+    color: var(--p3);
+    text-decoration: none;
+}
+/* https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
+/* Sidebar navigation */
+.sidenav{
+    height: 100%;
+    width: var(--navsize);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--navbg);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #8e8f86;
+    display: block;
+}
+.sidenav a:hover {color: var(--navhov);}
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+table, th, td {
+    border-collapse: collapse;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.tablepding {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+table {
+    width:100%; 
+    margin-left:0%; 
+    margin-right:0%;
+}
+.bottomBorder {border-bottom: 1px solid var(--p2);}
+.tblBtns {
+    background-color: var(--bg-col);
+    border: none;
+    font-family: "Georgia", Times, serif;
+    line-height: 1.4;
+    font-size: 18px;
+    color: var(--p1);
+    padding: 0 10px;
+    text-align: center;
+    width: 100%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 4px;
+}
+.tblBtns:hover {
+    background-color: var(--p1);
+    color: var(--bg-col);
+}
+.titlesTable:before {
+    content: '   ';
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 10%;
+    margin-right: 25px;
+}
+.circlecol{display: flex;}
+.titlesTable {
+    margin-left: calc(var(--navsize) + 100px);
+    max-width: 1000px;
+    line-height: 1.2;
+    color: var(--p1);
+    text-align: center;
+}
+.circle0:before{background-color: #eee655;}
+.circle1:before{background-color: #58ee55;}
+.circle2:before{background-color: #8f5eeb;}
+.circle3:before{background-color: #ee55e1;}
+.circle4:before{background-color: #ee5555;}
+.circle5:before{background-color: #55eeee;}
+.circle6:before{background-color: #eeeeee;}
+
+.tableInfoBG {
+    background-color: var(--tblBG);
+    transition: 0.5s 0s All ease-out;
+    margin-top: var(--mvmon);
+    border-radius: 5px;
+}
+.alleft {
+    text-align: left;
+}
+.tblwidth1{
+    max-width: 25px;
+}
+.tblwidth2{
+    max-width: 20px;
+}
+.tblwidth3{
+    max-width: 55px;
+}
+
+
+#expandid {
+    display: none;
+    /* height: 100px;
+    max-height: 100px; */
+    width: 1000px;
+    max-width: 1000px;
+}
